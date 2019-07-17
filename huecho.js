@@ -2,7 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const Promise = require('bluebird');
+// const Promise = require('bluebird');
 
 
 var winston = require('winston')
@@ -92,12 +92,16 @@ class EchoPlugin {
 
     env.logger.debug("Pairing mode is enabled for 20 seconds. Let Alexa scan for devices now.");
     hueEmulator.pairingEnabled = true;
-    return Promise.delay(20000).then(() => {
-      return hueEmulator.pairingEnabled = false;
-    }).then(() => {
-        env.logger.debug("Pairing mode is disabled again.");
-        return
-    });
+    // return Promise.delay(20000).then(() => {
+    //   return hueEmulator.pairingEnabled = false;
+    // }).then(() => {
+    //     env.logger.debug("Pairing mode is disabled again.");
+    //     return
+    // });
+    setTimeout(() => {
+      env.logger.debug("Pairing mode is disabled again.");
+      hueEmulator.pairingEnabled = false;
+    },20000)
   }
 
   _getDeviceName(device) {
