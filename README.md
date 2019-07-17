@@ -25,7 +25,7 @@ The configuration of pimatic can be extended by adding an attribute called "echo
 
 Example:
 
-```json
+```javascript
 
 const huecho = require('huecho')
 
