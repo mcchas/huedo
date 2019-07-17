@@ -98,10 +98,11 @@ class EchoPlugin {
     //     env.logger.debug("Pairing mode is disabled again.");
     //     return
     // });
-    setTimeout(() => {
+    return new Promise(resolve => setTimeout(() => {
       env.logger.debug("Pairing mode is disabled again.");
       hueEmulator.pairingEnabled = false;
-    },40000)
+      resolve
+    },40000))
   }
 
   _getDeviceName(device) {
