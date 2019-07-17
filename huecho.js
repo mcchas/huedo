@@ -101,7 +101,7 @@ class EchoPlugin {
     setTimeout(() => {
       env.logger.debug("Pairing mode is disabled again.");
       hueEmulator.pairingEnabled = false;
-    },20000)
+    },40000)
   }
 
   _getDeviceName(device) {
