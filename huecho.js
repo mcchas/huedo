@@ -64,6 +64,8 @@ class EchoPlugin {
 
     devices.forEach(device => {
 
+      if (device === undefined) return
+
       let addDevice = hueEmulator.addDevice(device);
 
       // if (device.template === 'buttons') {
