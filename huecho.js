@@ -66,23 +66,23 @@ class EchoPlugin {
 
       let addDevice = hueEmulator.addDevice(device);
 
-      if (device.template === 'buttons') {
-        let ref = device.config.buttons;
-        let results = [];
-        ref.forEach(button => {
-          results.push(addDevice(button.text, button.id));
-        })
-        return results;
-      } 
-      else {
-        addDevice(this._getDeviceName(device));
-        let ref1 = this._getAdditionalNames(device);
-        let results1 = [];
-        ref1.forEach(additionalName => {
-          results1.push(addDevice(additionalName))
-        })
-        return results1;
-      }
+      // if (device.template === 'buttons') {
+      //   let ref = device.config.buttons;
+      //   let results = [];
+      //   ref.forEach(button => {
+      //     results.push(addDevice(button.text, button.id));
+      //   })
+      //   return results;
+      // } 
+      // else {
+      addDevice(this._getDeviceName(device));
+      let ref1 = this._getAdditionalNames(device);
+      let results1 = [];
+      ref1.forEach(additionalName => {
+        results1.push(addDevice(additionalName))
+      })
+      return results1;
+      // }
 
     })
 
