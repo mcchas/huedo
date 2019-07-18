@@ -6,9 +6,8 @@
   "files": [
     "lib",
     "test",
-    "echo.js",
+    "huedo.js",
     "README.md",
-    "echo-config-schema.coffee",
     "LICENSE"
   ],
   "version": "0.0.1",
