@@ -1,8 +1,8 @@
 {
-  "name": "huecho",
+  "name": "huedo",
   "description": "Module that emulates Hue devices for Amazon echo to control",
-  "author": "Mike C (https://github.com/mcchas/huecho)",
-  "main": "huecho.js",
+  "author": "Mike C (https://github.com/mcchas/huedo)",
+  "main": "huedo.js",
   "files": [
     "lib",
     "test",
@@ -12,11 +12,11 @@
     "LICENSE"
   ],
   "version": "0.0.1",
-  "homepage": "https://github.com/mcchas/huecho",
+  "homepage": "https://github.com/mcchas/huedo",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/mcchas/huecho.git"
+    "url": "git://github.com/mcchas/huedo.git"
   },
   "dependencies": {
     "aguid": "^2.0.0",

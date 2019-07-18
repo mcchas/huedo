@@ -2,7 +2,6 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-// const Promise = require('bluebird');
 
 
 var winston = require('winston')
@@ -40,7 +39,7 @@ class EchoPlugin {
 
   init(devices) {
 
-    env.logger.info("Starting huecho...")
+    env.logger.info("Starting huedo...")
 
     let networkInfo = this._getNetworkInfo();
     if (networkInfo === null && (!this.ipAddress || !this.macAddress)) {
