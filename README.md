@@ -1,9 +1,9 @@
-# huecho
+# huedo
 
-huecho is a generic module that enables Amazon's echo to communicate with your code. 
+huedo is a generic module that enables Amazon's echo to communicate with your code. 
 
 It does this by simulating Philips Hue lights, which are natively supported by the echo. 
-All network communication happens on the local network, so huecho doesn't have to be accessible from the internet.
+All network communication happens on the local network, so huedo doesn't have to be accessible from the internet.
 
 This can replace unmaintained modules such as fauxmojs and also providing support for dimming.
 
@@ -26,7 +26,7 @@ Example:
 
 ```javascript
 
-const huecho = require('huecho')
+const huedo = require('huedo')
 
 var devices = [
     { 
@@ -53,7 +53,7 @@ var devices = [
     }
 ]
 
-let echo = new huecho()
+let echo = new huedo()
 echo.init(devices)
 
 
