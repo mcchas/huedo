@@ -20,8 +20,7 @@ Some the commands are
 * *Alexa, dim living room to 50 percent*
 * *Alexa, turn on Thermostat*
 
-#### Configuration
-The configuration of pimatic can be extended by adding an attribute called "echo" on every supported device.
+#### Usage
 
 Example:
 
@@ -67,5 +66,5 @@ echo.init(devices)
 
 ##### Alexa doesn't find any devices. What's wrong?
 
-* IMPORTANT: Currently the newer echo devices (echo plus and echo 2nd gen) are not supported with pimatic-echo. Just the echo dot (2nd gen) or echo (1st gen) are supported. If you are using both generations, you can search for devices with the old echo, but still control everything from all echoes.
+* IMPORTANT: Currently the newer echo devices (echo plus and echo 2nd gen) are not supported. Just the echo dot (2nd gen) or echo (1st gen) are supported. If you are using both generations, you can search for devices with the old echo, but still control everything from all echoes.
 
