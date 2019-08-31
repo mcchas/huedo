@@ -31,23 +31,19 @@ const huedo = require('huedo')
 var devices = [
     { 
         id: "light1",
-        class: "MySwitch",
-        name: "Kitchen Light 1",
-        brightness: 50,
-        dimlevel: 40,
+        name: "Light",
         handler: (action, cb) => {
-            console.log('got state 1', action)
+            const value = Math.round(action.bri / 255 * 100)
+            console.log(`set light ${action.on} with value ${value}`)
             cb(true)
         }
     },
     { 
-        id: "light2",
-        class: "MySwitch",
-        name: "Kitchen Light 2",
-        brightness: 50,
-        dimlevel: 40,
+        id: "heater1",
+        name: "Heater",
         handler: (action, cb) => {
-            console.log('got state 2', action)
+            const value = Math.round(action.bri / 255 * 100)
+            console.log(`set heater ${action.on} with value ${value} degrees`)
             cb(true)
         }
     }
