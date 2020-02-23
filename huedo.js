@@ -2,27 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
-
-var winston = require('winston')
-
-
-
-const logger = winston.createLogger({
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.prettyPrint(),
-        winston.format.colorize(),
-        winston.format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
-      ),
-    level: 'silly',
-    transports: [
-      new winston.transports.Console(),
-    //   new winston.transports.File({ filename: 'combined.log' })
-    ]
-  });
-
-var env = { logger: logger }
+const debug = require('debug')('huedo')
 
 class EchoPlugin {
 
@@ -39,7 +19,7 @@ class EchoPlugin {
 
   init(devices) {
 
-    env.logger.info("Starting huedo...")
+    debug("Starting huedo...")
 
     let networkInfo = this._getNetworkInfo();
     if (networkInfo === null && (!this.ipAddress || !this.macAddress)) {
@@ -57,9 +37,9 @@ class EchoPlugin {
     }
 
     let upnpServer = new this.UpnpServer(ipAddress, serverPort, macAddress, upnpPort);
-    let hueEmulator = new this.HueEmulator(ipAddress, serverPort, macAddress, upnpPort, this.config, storageDir, env);
+    let hueEmulator = new this.HueEmulator(ipAddress, serverPort, macAddress, upnpPort, this.config, storageDir);
 
-    env.logger.debug(`Using ip address : ${ipAddress}`);
+    debug(`Using ip address : ${ipAddress}`);
 
     devices.forEach(device => {
 
@@ -91,16 +71,16 @@ class EchoPlugin {
     let server = this._startServer(ipAddress, serverPort);
     hueEmulator.start(server);
 
-    env.logger.debug("Pairing mode is enabled for 20 seconds. Let Alexa scan for devices now.");
+    debug("Pairing mode is enabled for 20 seconds. Let Alexa scan for devices now.");
     hueEmulator.pairingEnabled = true;
     // return Promise.delay(20000).then(() => {
     //   return hueEmulator.pairingEnabled = false;
     // }).then(() => {
-    //     env.logger.debug("Pairing mode is disabled again.");
+    //     debug("Pairing mode is disabled again.");
     //     return
     // });
     return new Promise(resolve => setTimeout(() => {
-      env.logger.debug("Pairing mode is disabled again.");
+      debug("Pairing mode is disabled again.");
       hueEmulator.pairingEnabled = false;
       resolve
     },40000))
@@ -126,14 +106,14 @@ class EchoPlugin {
         }
       }
     }
-    env.logger.warn("No network interface found.");
+    debug("No network interface found.");
     return null;
   }
 
   _startServer(address, serverPort) {
     var emulator = express();
     emulator.listen(serverPort, address, () => {
-      return env.logger.info(`started hue emulator on port ${serverPort}`);
+      return debug(`started hue emulator on port ${serverPort}`);
     }).on('error', () => {
       throw new Error(`Error starting hue emulator. Maybe port ${serverPort} is not available?`);
     });

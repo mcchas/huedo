@@ -21,10 +21,11 @@
     "aguid": "^2.0.0",
     "async": "^2.1.2",
     "body-parser": "^1.15.2",
+    "crypto": "^1.0.1",
+    "debug": "^4.1.1",
     "express": "^4.14.0",
     "lodash": "^4.16.4",
-    "uuid": "^3.3.2",
-    "winston": "^3.2.1"
+    "uuid": "^3.3.2"
   },
   "engines": {
     "node": ">8.0",
